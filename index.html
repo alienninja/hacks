@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Hacks & Mods - BitHash</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: #0a0a0a;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #1a1a1a;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        header {
+            border-bottom: 3px solid #00ff88;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            color: #00ff88;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #8b949e;
+            font-size: 1.1em;
+        }
+        
+        .warning {
+            background: #3a2a2a;
+            border-left: 4px solid #ff6b6b;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .warning strong {
+            color: #ff6b6b;
+        }
+        
+        .game-card {
+            background: #2a2a2a;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 20px 0;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-2px);
+            border-color: #00ff88;
+        }
+        
+        .game-card h2 {
+            color: #00ccff;
+            margin-bottom: 10px;
+            font-size: 1.8em;
+        }
+        
+        .game-card .meta {
+            color: #8b949e;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        
+        .game-card .meta span {
+            margin-right: 15px;
+        }
+        
+        .game-card .description {
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+        
+        .features {
+            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+        
+        .features h3 {
+            color: #00ff88;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        
+        .features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .features li:before {
+            content: "✓ ";
+            color: #00ff88;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .features li {
+            margin: 8px 0;
+            padding-left: 20px;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .btn-primary {
+            background: #00ff88;
+            color: #0a0a0a;
+        }
+        
+        .btn-primary:hover {
+            background: #00cc6f;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #00ccff;
+            border-color: #00ccff;
+        }
+        
+        .btn-secondary:hover {
+            background: #00ccff;
+            color: #0a0a0a;
+        }
+        
+        .requirements {
+            background: #2a2a2a;
+            border: 1px solid #30363d;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+        
+        .requirements h3 {
+            color: #ff6b6b;
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+        
+        code {
+            background: #0d1117;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #00ff88;
+            font-family: 'Courier New', monospace;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #30363d;
+            color: #8b949e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Game Hacks & Mods</h1>
+            <p class="subtitle">Educational reverse engineering and game modifications</p>
+        </header>
+
+        <div class="warning">
+            <strong>⚠️ Educational Use Only</strong><br>
+            These modifications are for educational purposes and single-player games only. 
+            Do not use on games with multiplayer, leaderboards, or online features. 
+            You are responsible for your own actions.
+        </div>
+
+        <!-- Car Crash Simulator -->
+        <div class="game-card">
+            <h2>Car Crash Simulator</h2>
+            <div class="meta">
+                <span>📱 Android</span>
+                <span>🎯 Single Player</span>
+                <span>🔓 No Root Required</span>
+                <span>📅 January 2026</span>
+            </div>
+            
+            <div class="description">
+                <p>Discovered that this mobile racing game stores all pricing, rewards, and economy data in an unencrypted JSON file on the device. Wrote Python scripts to modify prices, increase rewards, and convert premium currency items to free currency.</p>
+            </div>
+            
+            <div class="features">
+                <h3>What You Can Modify:</h3>
+                <ul>
+                    <li>Vehicle prices (reduce from 12,500 to 5,000 coins)</li>
+                    <li>Premium cars (convert from gold to coins)</li>
+                    <li>Quest rewards (double or more)</li>
+                    <li>Daily login bonuses (increase significantly)</li>
+                    <li>Ad watch rewards</li>
+                    <li>All upgrades and customization costs</li>
+                </ul>
+            </div>
+            
+            <div class="features">
+                <h3>Available Tools:</h3>
+                <ul>
+                    <li><strong>Price Modifier Script</strong> - Customize all in-game prices and rewards</li>
+                    <li><strong>Daily Reset Script</strong> - Reset daily rewards and quests instantly</li>
+                </ul>
+            </div>
+            
+            <div class="requirements">
+                <h3>Requirements:</h3>
+                <ul>
+                    <li>Android device with USB debugging enabled</li>
+                    <li>ADB (Android Debug Bridge) installed on computer</li>
+                    <li>Python 3.x (for price modifier)</li>
+                    <li>Basic command line knowledge</li>
+                </ul>
+            </div>
+            
+            <div class="buttons">
+                <a href="car-crash-simulator/" class="btn btn-primary">📖 Read Full Write-up</a>
+                <a href="car-crash-simulator/modify_game_config.py" class="btn btn-secondary">📥 Download Price Modifier</a>
+                <a href="car-crash-simulator/reset_dailies.sh" class="btn btn-secondary">📥 Download Daily Reset</a>
+            </div>
+        </div>
+
+        <!-- Placeholder for future games -->
+        <div class="game-card" style="opacity: 0.5; border-style: dashed;">
+            <h2>Coming Soon...</h2>
+            <div class="meta">
+                <span>🔍 Research in Progress</span>
+            </div>
+            <p>More game modifications and reverse engineering projects coming soon. Have a suggestion? Let me know!</p>
+        </div>
+
+        <footer>
+            <p><strong>Disclaimer:</strong> These projects are for educational purposes only. All modifications are tested on single-player, offline games where you are the only affected party. Use responsibly and at your own risk.</p>
+            <p style="margin-top: 15px;">Made with curiosity and Python • <a href="https://bithash.cc" style="color: #00ccff;">bithash.cc</a></p>
+        </footer>
+    </div>
+</body>
+</html>
