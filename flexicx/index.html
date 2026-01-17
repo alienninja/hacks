@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Game Hacking: A 5-Minute Exploit</title>
+    <title>Car Crash Simulator Hack - Mobile Game Hacking</title>
     <style>
         * {
             margin: 0;
@@ -47,6 +47,49 @@
             color: #ff6b6b;
             margin-top: 20px;
             margin-bottom: 10px;
+        }
+        
+        .game-banner {
+            background: #2a2a2a;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .game-icon {
+            width: 96px;
+            height: 96px;
+            border-radius: 20px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .game-info h2 {
+            margin: 0 0 8px 0;
+            color: #00ff88;
+            font-size: 1.5em;
+        }
+        
+        .game-developer {
+            color: #8b949e;
+            margin-bottom: 12px;
+        }
+        
+        .play-store-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #00ccff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .play-store-link:hover {
+            text-decoration: underline;
         }
         
         .tldr {
@@ -130,7 +173,7 @@
             padding: 12px 24px;
             border-radius: 6px;
             font-weight: bold;
-            margin: 10px 0;
+            margin: 10px 10px 10px 0;
             transition: background 0.3s;
         }
         
@@ -138,27 +181,49 @@
             background: #00cc6f;
             text-decoration: none;
         }
+        
+        @media (max-width: 600px) {
+            .game-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>How I Hacked a Mobile Racing Game (In 5 Minutes)</h1>
         
+        <div class="game-banner">
+            <img src="../flexicX.png" 
+                 alt="Car Crash Simulator" 
+                 class="game-icon">
+            <div class="game-info">
+                <h2>Car Crash Simulator</h2>
+                <div class="game-developer">by FlexicX</div>
+                <a href="https://play.google.com/store/apps/details?id=com.SIDGIN.CarCrashSimulator&hl=en_US" 
+                   class="play-store-link" 
+                   target="_blank">
+                    📲 View on Google Play Store →
+                </a>
+            </div>
+        </div>
+        
         <div class="tldr">
-            <strong>TL;DR:</strong> I got tired of grinding for coins in a mobile car crash game, discovered the pricing config was stored in plain JSON on my phone, and wrote a Python script to give myself unlimited money. <strong>It worked.</strong>
+            <strong>TL;DR:</strong> I got tired of grinding for coins in Car Crash Simulator (by FlexicX), discovered the pricing config was stored in plain JSON on my phone, and wrote a Python script to give myself unlimited money. <strong>It worked.</strong>
         </div>
 
         <h2>The Discovery</h2>
-        <p>While playing around with a random mobile racing game on Android, I noticed it had the typical free-to-play grind: expensive cars, costly upgrades, and endless "watch an ad for 100 coins" prompts. Being curious (and impatient), I decided to poke around the game files.</p>
+        <p>While playing Car Crash Simulator, I noticed it had the typical free-to-play grind: expensive cars, costly upgrades, and endless "watch an ad for 100 coins" prompts. Being curious (and impatient), I decided to poke around the game files.</p>
 
         <h3>Finding the Gold Mine</h3>
         <p>Using <code>adb shell</code>, I navigated to the game's data directory:</p>
         
-        <pre><code>/sdcard/Android/data/[game.package.name]/files/</code></pre>
+        <pre><code>/sdcard/Android/data/com.SIDGIN.CarCrashSimulator/files/</code></pre>
         
         <p>Inside, I found a file called <code>ProductScheme.fxon</code>. The <code>.fxon</code> extension was unfamiliar, so I pulled it to my computer:</p>
         
-        <pre><code>adb pull /sdcard/Android/data/[package]/files/ProductScheme.fxon</code></pre>
+        <pre><code>adb pull /sdcard/Android/data/com.SIDGIN.CarCrashSimulator/files/ProductScheme.fxon</code></pre>
         
         <p>Opening it in a text editor revealed the shocking truth: <strong>it was just a JSON file</strong>. Not encrypted. Not obfuscated. Just plain, beautiful JSON containing every price in the game.</p>
 
@@ -252,11 +317,12 @@ def modify_config(input_file, output_file):
 modify_config('ProductScheme.fxon', 'ProductScheme_modified.fxon')</code></pre>
 
         <a href="modify_game_config.py" class="download-btn">📥 Download Full Script</a>
+        <a href="reset_dailies.sh" class="download-btn">📥 Download Daily Reset Script</a>
 
         <h2>Does It Actually Work?</h2>
         <p>I pushed the modified file back to my phone:</p>
         
-        <pre><code>adb push ProductScheme_modified.fxon /sdcard/Android/data/[package]/files/ProductScheme.fxon</code></pre>
+        <pre><code>adb push ProductScheme_modified.fxon /sdcard/Android/data/com.SIDGIN.CarCrashSimulator/files/ProductScheme.fxon</code></pre>
         
         <p>Restarted the game and... <strong>IT WORKED</strong>.</p>
         
@@ -310,7 +376,8 @@ modify_config('ProductScheme.fxon', 'ProductScheme_modified.fxon')</code></pre>
         <hr style="margin: 40px 0; border: 0; border-top: 1px solid #30363d;">
         
         <p style="text-align: center; color: #8b949e;">
-            <em>This post is for educational purposes. Don't be a jerk - only use this on single-player games where you're the only one affected.</em>
+            <em>This post is for educational purposes. Don't be a jerk - only use this on single-player games where you're the only one affected.</em><br>
+            <a href="../" style="color: #00ccff; margin-top: 10px; display: inline-block;">← Back to all hacks</a>
         </p>
     </div>
 </body>
